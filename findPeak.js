@@ -1,19 +1,18 @@
 
-/*
-    Name: findPeak1D
-
-    Goal: find a peak in a one dimensional array, a peak being a element greater than its direct neighbours
-
-    Pseudo Code:
-        in an array of n elements
-        if ( array[n/2] < array[n/2 - 1]) search in the left part of the array
-        else if ( array[n/2] < array[n/2 + 1]) search in the right part of the array
-        else return array[n]
-
-    Complexity:
-    Base Case T(1) = (1)
-    T(n) = O(1) + O(1) + ... O(1) --> log2n times
-    O(log2n)
+/**
+ * @name findPeak1D
+ * @description  Goal: find a peak in a one dimensional array, a peak being a element greater than its direct neighbours
+ *     Pseudo Code:
+ *      in an array of n elements
+ *      if ( array[n/2] < array[n/2 - 1]) search in the left part of the array
+ *      else if ( array[n/2] < array[n/2 + 1]) search in the right part of the array
+ *      else return array[n]
+ *     Complexity:
+ *      Base Case T(1) = (1)
+ *      T(n) = 0(1) + 0(1) + ... 0(1) --> log2n times
+ *      0(log2n)
+ * @param arr
+ * @returns {*}
  */
 export default function findPeak1D(arr){
 
