@@ -1,4 +1,21 @@
-export default function findPeak(arr){
+
+/*
+    Name: findPeak1D
+
+    Goal: find a peak in a one dimensional array, a peak being a element greater than its direct neighbours
+
+    Pseudo Code:
+        in an array of n elements
+        if ( array[n/2] < array[n/2 - 1]) search in the left part of the array
+        else if ( array[n/2] < array[n/2 + 1]) search in the right part of the array
+        else return array[n]
+
+    Complexity:
+    Base Case T(1) = (1)
+    T(n) = O(1) + O(1) + ... O(1) --> log2n times
+    O(log2n)
+ */
+export default function findPeak1D(arr){
 
     const middleIndex = Math.floor(arr.length / 2);
 
@@ -10,3 +27,10 @@ export default function findPeak(arr){
         return arr[middleIndex];
     }
 }
+
+
+/*
+   Name : findPeak2D
+
+   Goal: find a peak in a 2 dimensional array, a peak being a element greater than its direct neighbours
+ */
