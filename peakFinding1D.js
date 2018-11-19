@@ -14,22 +14,15 @@
  * @param arr
  * @returns {*}
  */
-export default function findPeak1D(arr){
+export default function peakFinding1D(arr){
 
     const middleIndex = Math.floor(arr.length / 2);
 
     if(arr[middleIndex -1] > arr[middleIndex] ){
-        return findPeak(arr.slice(0,middleIndex));
+        return peakFinding1D(arr.slice(0,middleIndex));
     } else if(arr[middleIndex] < arr[middleIndex + 1]){
-        return findPeak(arr.slice(middleIndex));
+        return peakFinding1D(arr.slice(middleIndex));
     } else {
         return arr[middleIndex];
     }
 }
-
-
-/*
-   Name : findPeak2D
-
-   Goal: find a peak in a 2 dimensional array, a peak being a element greater than its direct neighbours
- */
