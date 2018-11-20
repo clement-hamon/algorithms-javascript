@@ -11,35 +11,40 @@ function findMaxIndex(array) {
 }
 
 /**
- * while there are more than one column
- * select maximum value from the middle column
- * if last column and bigger than previous return current max value else
- * if
+ * Peak Finding within a 2D array
  *
  * @param array
  * @param startIndex
  * @returns {*}
  */
 export default function peakFinding2D(array) {
+    if(!Array.isArray(array)) {
+        throw new TypeError('Illegal parameter');
+    }
+
     let startIndex = 0;
     let colIndex, rowIndex;
 
     while (array.length > 1) {
+        let currentEl, nextEl, previousEl;
 
         colIndex = Math.floor(array.length / 2);
         rowIndex = findMaxIndex(array[colIndex]);
 
+        currentEl = array[colIndex][rowIndex];
+        nextEl = array[colIndex + 1][rowIndex];
+        previousEl = array[colIndex - 1][rowIndex];
+
         if (colIndex === array.length - 1) {
-            const biggerThanPrevious = array[colIndex][rowIndex] > array[colIndex - 1][rowIndex];
-            if(biggerThanPrevious){
+            if(currentEl > previousEl){
                 return {m: startIndex + colIndex, n: rowIndex};
             }
             array = array.slice(0, colIndex);
 
-        } else if (array[colIndex - 1] && (array[colIndex][rowIndex] < array[colIndex - 1][rowIndex])) {
+        } else if (array[colIndex - 1] && (currentEl < previousEl)) {
             array = array.slice(0, colIndex);
 
-        } else if (array[colIndex + 1] && (array[colIndex][rowIndex] < array[colIndex + 1][rowIndex])) {
+        } else if (array[colIndex + 1] && (currentEl < nextEl)) {
             array = array.slice(colIndex + 1);
             startIndex = colIndex + 1;
         }
